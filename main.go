@@ -1,6 +1,18 @@
 package goBotUtils
 
-import "os"
+import (
+	"os"
+	"log"
+	"strings"
+	"regexp"
+	"database/sql"
+	"fmt"
+	"errors"
+	"encoding/json"
+	"net/http"
+	"io"
+	"github.com/tidwall/gjson"
+)
 
 func CreateFile(path string) (err error) {
 	_, err = os.Stat(path)
