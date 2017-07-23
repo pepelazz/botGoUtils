@@ -147,3 +147,4 @@ func DownloadFile(filepath string, url string) (err error) {
 
 	return nil
 }
+
