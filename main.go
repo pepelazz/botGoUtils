@@ -81,7 +81,29 @@ func FindIndexInArrStr(arr []string, str string) (i int) {
 	return -1
 }
 
-func CallPgFunc(pgDb *sql.DB, funcName string, jsonStr []byte, res interface{}, metaInfo interface{}) (err error) {
+type dbType interface {
+	QueryRow(query string, args ...interface{}) *sql.Row
+}
+
+
+func CallPgSelectToJson(pgDb dbType, queryStr string, res interface{}) (err error) {
+	var queryRes []byte
+
+	err = pgDb.QueryRow(queryStr).Scan(&queryRes)
+	if err != nil {
+		fmt.Printf("queryRes err %s\n", err)
+		return
+	}
+
+	err = json.Unmarshal(queryRes, &res)
+	if err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func CallPgFunc(pgDb dbType, funcName string, jsonStr []byte, res interface{}, metaInfo interface{}) (err error) {
 
 	var queryRes []byte
 	var queryStr string
@@ -147,4 +169,3 @@ func DownloadFile(filepath string, url string) (err error) {
 
 	return nil
 }
-
