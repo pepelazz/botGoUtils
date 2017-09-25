@@ -16,6 +16,14 @@ var Emoji = struct {
 	Watch             string
 	Trophy            string
 	Eyeglasses        string
+	RightPoint        string
+	Time              string
+	NerdFace          string
+	Bowling           string
+	Lock              string
+	Notebook          string
+	Gear              string
+	ChartUpTrend      string
 }{
 	"\U0001F44D", // ThumbUp
 	"\U0001F44E", // ThumbDown
@@ -31,5 +39,13 @@ var Emoji = struct {
 	"\U0000231A", // Watch
 	"\U0001F3C6", // Trophy
 	"\U0001F453", // Eyeglasses
+	"\U0001F61C\U0001F3C1", // RightPoint
+	"\U0000231B", // Time
+	"\U0001F913", // NerdFace
+	"\U0001F3B3", // Bowling
+	"\U0001F512", // Lock
+	"\U0001F4D3", // Notebook
+	"\U00002699", // Gear
+	"\U0001F4C8", // ChartUpTrend
 }
 

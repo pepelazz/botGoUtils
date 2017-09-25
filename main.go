@@ -103,6 +103,7 @@ func CallPgSelectToJson(pgDb dbType, queryStr string, res interface{}) (err erro
 	return nil
 }
 
+
 func CallPgFunc(pgDb dbType, funcName string, jsonStr []byte, res interface{}, metaInfo interface{}) (err error) {
 
 	var queryRes []byte
@@ -114,12 +115,14 @@ func CallPgFunc(pgDb dbType, funcName string, jsonStr []byte, res interface{}, m
 		queryStr = fmt.Sprintf("select * from %s()", funcName)
 	}
 
+	//fmt.Printf("funcName: %s, queryStr: %s\n", funcName, queryStr)
+
 	err = pgDb.QueryRow(queryStr).Scan(&queryRes)
 	if err != nil {
 		return
 	}
 
-	//fmt.Printf("queryRes %s\n", queryRes)
+	//fmt.Printf("funcName: %s, queryRes: %s\n", funcName, queryRes)
 
 	return ParseResponseFromPostgresFunc(queryRes, res, metaInfo)
 }
