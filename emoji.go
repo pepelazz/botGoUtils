@@ -2,32 +2,38 @@ package goBotUtils
 
 // http://apps.timwhitlock.info/emoji/tables/unicode
 var Emoji = struct {
-	ThumbUp           string
-	ThumbDown         string
-	Hourglass         string
-	Silhouette        string
-	CheqFlag          string
-	ClosedLockWithKey string
-	LeftBlackArrow    string
-	Key               string
-	Ledger            string
-	Newspaper         string
-	Books             string
-	Watch             string
-	Trophy            string
-	Eyeglasses        string
-	RightPoint        string
-	Time              string
-	NerdFace          string
-	Bowling           string
-	Lock              string
-	Notebook          string
-	Gear              string
-	ChartUpTrend      string
-	LeftArrow      	  string
-	UpPointing        string
-	DownPointing      string
-	TopWithUpwards    string
+	ThumbUp                             string
+	ThumbDown                           string
+	Hourglass                           string
+	Silhouette                          string
+	CheqFlag                            string
+	ClosedLockWithKey                   string
+	LeftBlackArrow                      string
+	Key                                 string
+	Ledger                              string
+	Newspaper                           string
+	Books                               string
+	Watch                               string
+	Trophy                              string
+	Eyeglasses                          string
+	RightPoint                          string
+	Time                                string
+	NerdFace                            string
+	Bowling                             string
+	Lock                                string
+	Notebook                            string
+	Gear                                string
+	ChartUpTrend                        string
+	LeftArrow                           string
+	UpPointing                          string
+	DownPointing                        string
+	TopWithUpwards                      string
+	UpPointRed                          string
+	DownPointRed                        string
+	SmilingFaceWithSunglasses           string
+	FlushedFace                         string
+	FaceWithStuckOutTongueAndWinkingEye string
+	CryingFace                          string
 }{
 	"\U0001F44D", // ThumbUp
 	"\U0001F44E", // ThumbDown
@@ -55,5 +61,11 @@ var Emoji = struct {
 	"\U0001F53C", // UpPointing
 	"\U0001F53D", // DownPointing
 	"\U0001F51D", // TopWithUpwards
+	"\U0001F53A", // UpPointRed
+	"\U0001F53B", // DownPointRed
+	"\U0001F60E", // SmilingFaceWithSunglasses
+	"\U0001F633", // FlushedFace
+	"\U0001F61C", // FaceWithStuckOutTongueAndWinkingEye
+	"\U0001F622", // CryingFace
 }
 
