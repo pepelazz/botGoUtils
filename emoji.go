@@ -25,6 +25,9 @@ var Emoji = struct {
 	Gear              string
 	ChartUpTrend      string
 	LeftArrow      	  string
+	UpPointing        string
+	DownPointing      string
+	TopWithUpwards    string
 }{
 	"\U0001F44D", // ThumbUp
 	"\U0001F44E", // ThumbDown
@@ -49,5 +52,8 @@ var Emoji = struct {
 	"\U00002699", // Gear
 	"\U0001F4C8", // ChartUpTrend
 	"\U00002B05", // LeftArrow
+	"\U0001F53C", // UpPointing
+	"\U0001F53D", // DownPointing
+	"\U0001F51D", // TopWithUpwards
 }
 

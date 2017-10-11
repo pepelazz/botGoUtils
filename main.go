@@ -115,14 +115,14 @@ func CallPgFunc(pgDb dbType, funcName string, jsonStr []byte, res interface{}, m
 		queryStr = fmt.Sprintf("select * from %s()", funcName)
 	}
 
-	//fmt.Printf("funcName: %s, queryStr: %s\n", funcName, queryStr)
+	fmt.Printf("funcName: %s, queryStr: %s\n", funcName, queryStr)
 
 	err = pgDb.QueryRow(queryStr).Scan(&queryRes)
 	if err != nil {
 		return
 	}
 
-	//fmt.Printf("funcName: %s, queryRes: %s\n", funcName, queryRes)
+	fmt.Printf("funcName: %s, queryRes: %s\n", funcName, queryRes)
 
 	return ParseResponseFromPostgresFunc(queryRes, res, metaInfo)
 }
