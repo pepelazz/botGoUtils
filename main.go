@@ -122,7 +122,7 @@ func CallPgFunc(pgDb dbType, funcName string, jsonStr []byte, res interface{}, m
 		return
 	}
 
-	fmt.Printf("funcName: %s, queryRes: %s\n", funcName, queryRes)
+	//fmt.Printf("funcName: %s, queryRes: %s\n", funcName, queryRes)
 
 	return ParseResponseFromPostgresFunc(queryRes, res, metaInfo)
 }

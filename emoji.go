@@ -34,6 +34,8 @@ var Emoji = struct {
 	FlushedFace                         string
 	FaceWithStuckOutTongueAndWinkingEye string
 	CryingFace                          string
+	MoneyBag                            string
+	Beer                                string
 }{
 	"\U0001F44D", // ThumbUp
 	"\U0001F44E", // ThumbDown
@@ -67,5 +69,7 @@ var Emoji = struct {
 	"\U0001F633", // FlushedFace
 	"\U0001F61C", // FaceWithStuckOutTongueAndWinkingEye
 	"\U0001F622", // CryingFace
+	"\U0001F4B0", // MoneyBag
+	"\U0001F37A", // Beer
 }
 
