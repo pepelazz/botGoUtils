@@ -51,6 +51,18 @@ func CheckStrContains(arr []string, str string) bool {
 	return false
 }
 
+// функция проверки есть ли у двух массивов общий элемент
+func CheckArrayHasIntersection(original, target []string) bool {
+	for _, i := range original {
+		for _, x := range target {
+			if strings.ToLower(i) == strings.ToLower(x) {
+				return true
+			}
+		}
+	}
+	return false
+}
+
 // функция проверки строки с массивом regex выражений
 func CheckStrRegExContains(arr []string, str string) bool {
 	for _, s := range arr {
