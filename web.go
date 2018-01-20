@@ -3,6 +3,8 @@ package goBotUtils
 import (
 	"github.com/gin-gonic/gin"
 	"net/http"
+	"fmt"
+	"encoding/json"
 )
 
 const (
@@ -37,5 +39,29 @@ func CheckIsAdmin(c *gin.Context) bool {
 		HttpError(c, http.StatusMethodNotAllowed, "not enough rights")
 		return false
 	}
+	return true
+}
+
+// функция извлечения json параметров, переданных строкой
+func ExtractPostReqParams(c *gin.Context, res interface{}) bool {
+
+	v, ok := c.Get(ContextJsonParamFldParam)
+	if !ok {
+		HttpError(c, http.StatusMethodNotAllowed, "missed params")
+		return false
+	}
+
+	paramStr, ok := v.(string)
+	if !ok {
+		HttpError(c, http.StatusMethodNotAllowed, fmt.Sprintf("ExtractPostReqParams wrong type assertion %s not string", v))
+		return false
+	}
+
+	err := json.Unmarshal([]byte(paramStr), &res)
+	if err != nil {
+		HttpError(c, http.StatusMethodNotAllowed, fmt.Sprintf("ExtractPostReqParams json.Unmarshal", err.Error()))
+		return false
+	}
+
 	return true
 }
