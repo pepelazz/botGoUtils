@@ -7,6 +7,7 @@ import (
 
 const (
 	ContextJsonParam = "jsonParam" //параметры в web запросах
+	ContextJsonParamFldParam = "jsonParamFldParam" //поле params в параметры в web запросах
 )
 
 func HttpSuccess(c *gin.Context, res interface{}) {
