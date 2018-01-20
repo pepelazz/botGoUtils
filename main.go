@@ -77,10 +77,23 @@ func CheckStrRegExContains(arr []string, str string) bool {
 	return false
 }
 
+// сравнение двух массивов. Возвращает массив элементов, которые есть в первом массиве, но нет во втором
+func CompareStringArray(a, b []string) []string {
+	for i := len(a) - 1; i >= 0; i-- {
+		for _, vD := range b {
+			if a[i] == vD {
+				a = append(a[:i], a[i+1:]...)
+				break
+			}
+		}
+	}
+	return a
+}
+
 // функция удаление элемента из массива
 func RemoveElementFromArr(arr []string, str string) ([]string) {
 	i := FindIndexInArrStr(arr, str)
-	return append(arr[:i], arr[i + 1:]...)
+	return append(arr[:i], arr[i+1:]...)
 }
 
 // функция поиска индекса элемента в массива
@@ -96,7 +109,6 @@ func FindIndexInArrStr(arr []string, str string) (i int) {
 type dbType interface {
 	QueryRow(query string, args ...interface{}) *sql.Row
 }
-
 
 func CallPgSelectToJson(pgDb dbType, queryStr string, res interface{}) (err error) {
 	var queryRes []byte
@@ -114,7 +126,6 @@ func CallPgSelectToJson(pgDb dbType, queryStr string, res interface{}) (err erro
 
 	return nil
 }
-
 
 func CallPgFunc(pgDb dbType, funcName string, jsonStr []byte, res interface{}, metaInfo interface{}) (err error) {
 
