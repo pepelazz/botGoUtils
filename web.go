@@ -6,8 +6,9 @@ import (
 )
 
 const (
-	ContextJsonParam = "jsonParam" //параметры в web запросах
+	ContextJsonParam         = "jsonParam"         //параметры в web запросах
 	ContextJsonParamFldParam = "jsonParamFldParam" //поле params в параметры в web запросах
+	ContextUserRole          = "userRole"
 )
 
 func HttpSuccess(c *gin.Context, res interface{}) {
@@ -24,4 +25,15 @@ func HttpError(c *gin.Context, status int, message string) {
 		"message": message,
 	})
 	c.Abort()
+}
+
+func CheckIsAdmin(c *gin.Context) bool {
+	userRole, ok := c.Get(ContextUserRole)
+	if !ok {
+		return false
+	}
+	if userRole != "admin" {
+		return false
+	}
+	return true
 }
