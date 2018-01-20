@@ -30,9 +30,11 @@ func HttpError(c *gin.Context, status int, message string) {
 func CheckIsAdmin(c *gin.Context) bool {
 	userRole, ok := c.Get(ContextUserRole)
 	if !ok {
+		HttpError(c, http.StatusMethodNotAllowed, "not found current user")
 		return false
 	}
 	if userRole != "admin" {
+		HttpError(c, http.StatusMethodNotAllowed, "not enough rights")
 		return false
 	}
 	return true
